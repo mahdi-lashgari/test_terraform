@@ -1,4 +1,27 @@
-SNOWFLAKE_USER="tf-snow"
-SNOWFLAKE_AUTHENTICATOR=JWT
-SNOWFLAKE_PRIVATE_KEY=`cat ~/.ssh/snowflake_tf_snow_key.p8`
-SNOWFLAKE_ACCOUNT="ukmixxl-yb13574"
+name: tf
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      account_id:
+        required: true
+        type: string
+
+jobs:
+  terragrunt:
+    name: tf
+    runs-on:
+      group: Static-IP-BI
+    permissions:
+      id-token: write
+      packages: read
+      contents: read
+      pull-requests: write
+    env:
+      SNOWFLAKE_USER:           'tf-snow'
+      SNOWFLAKE_AUTHENTICATOR:  JWT
+      SNOWFLAKE_PRIVATE_KEY:    'cat ~/.ssh/snowflake_tf_snow_key.p8'
+      SNOWFLAKE_ACCOUNT:        'ukmixxl-yb13574'
