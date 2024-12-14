@@ -12,11 +12,11 @@ provider "snowflake" {
 }
 
 resource "snowflake_database" "db" {
-  name = "TF_DEMO"
+  name        = "TF_DEMO"
 }
 
 resource "snowflake_warehouse" "warehouse" {
-  name           = "TF_DEMO"
+  name           = "TF_DEMO_W"
   warehouse_size = "xsmall"
   auto_suspend   = 60
 }
@@ -43,7 +43,8 @@ resource "snowflake_grant_privileges_to_account_role" "database_grant" {
 
 resource "snowflake_schema" "schema" {
   database   = snowflake_database.db.name
-  name       = "TF_DEMO"
+  name       = "TF_DEMO_S"
+  #is_managed = false
 }
 
 resource "snowflake_grant_privileges_to_account_role" "schema_grant" {
