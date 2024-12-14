@@ -21,6 +21,7 @@ resource "snowflake_warehouse" "warehouse" {
   auto_suspend   = 60
 }
 
+#testing
 provider "snowflake" {
   alias = "security_admin"
   role  = "SECURITYADMIN"
