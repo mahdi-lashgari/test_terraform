@@ -9,12 +9,8 @@ on:
       - main
 
 jobs:
-  tf-deploy:
+  terraform:
     uses: ./.github/workflows/.terraform.yml
     with:
-      environment: snowflake-preview
       account_id: "ukmixxl-yb13574"
     secrets: inherit
-    concurrency:
-      group: ${{ github.workflow }}-ci-run
-      cancel-in-progress: false
