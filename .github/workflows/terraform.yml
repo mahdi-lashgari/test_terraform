@@ -1,4 +1,4 @@
-name: tf-deploy-preview
+name: tf-deploy
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   tf-deploy:
-    uses: ./.github/workflows/.tf-deploy-preview.yml
+    uses: ./.github/workflows/.tf-deploy.yml
     with:
       environment: snowflake-preview
       account_id: "ukmixxl-yb13574"
