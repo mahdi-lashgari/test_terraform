@@ -1,4 +1,4 @@
-name: tf-deploy
+name: terraform
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   tf-deploy:
-    uses: ./.github/workflows/.tf-deploy.yml
+    uses: ./.github/workflows/.terraform.yml
     with:
       environment: snowflake-preview
       account_id: "ukmixxl-yb13574"
